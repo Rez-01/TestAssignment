@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,10 +10,13 @@ public class PlayerShootController : MonoBehaviour
     public UnityEvent OnShoot;
     public void Update()
     {
-        RotateTowardsMouse();
-        if(Input.GetMouseButtonDown(0))
+        if (!MenuView.IsPaused)
         {
-            Shoot();
+            RotateTowardsMouse();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+            }
         }
     }
 
